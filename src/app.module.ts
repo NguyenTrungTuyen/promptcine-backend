@@ -12,6 +12,8 @@ import { AiJobLogModule } from './modules/ai-job-log/ai-job-log.module';
 import { GatewayModule } from './gateway/job-status.module';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { ResponseHandlerMiddleware } from './common/middleware/response-handler.middleware';
+import { GenreModule } from './modules/sub-tags/genre/genre.module';
+import { TagModule } from './modules/sub-tags/tag/tag.module';
 
 @Module({
   imports: [
@@ -19,18 +21,20 @@ import { ResponseHandlerMiddleware } from './common/middleware/response-handler.
     MongooseModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGO_URI', { infer: true }),
+        uri: configService.get<string>('MONGODB_URI', 'mongodb://localhost:27017/MovieDB'),
       }),
     }),
     DatabaseModule,
-    QueueModule,
-    ProjectModule,
-    EpisodeModule,
-    SceneModule,
-    CharacterModule,
-    AiJobModule,
-    AiJobLogModule,
-    GatewayModule,
+    // QueueModule,
+    // ProjectModule,
+    // EpisodeModule,
+    // SceneModule,
+    // CharacterModule,
+    // AiJobModule,
+    // AiJobLogModule,
+    // GatewayModule,
+    GenreModule,
+    TagModule,
   ],
 })
 export class AppModule implements NestModule {
