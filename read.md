@@ -55,3 +55,8 @@ npm i --save-dev @types/nodemailer
  
 
  https://nest-modules.github.io/mailer/docs/mailer.html
+
+
+ 12. cache
+ npm install @nestjs/cache-manager cache-manager
+

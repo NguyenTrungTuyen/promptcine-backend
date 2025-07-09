@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { QueueModule } from './queue/queue.module';
@@ -14,6 +14,9 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { ResponseHandlerMiddleware } from './common/middleware/response-handler.middleware';
 import { GenreModule } from './modules/sub-tags/genre/genre.module';
 import { TagModule } from './modules/sub-tags/tag/tag.module';
+import { AuthModule } from './modules/sub-tags/auth/auth.module';
+import { CacheModule } from '@nestjs/cache-manager';
+import { AppCacheModule } from './modules/sub-tags/cache/cache.module'; // Uncomment if you have a custom cache module
 
 @Module({
   imports: [
@@ -35,6 +38,15 @@ import { TagModule } from './modules/sub-tags/tag/tag.module';
     // GatewayModule,
     GenreModule,
     TagModule,
+    AuthModule,
+
+    // CacheModule.register({
+    //   isGlobal: true, // Để sử dụng cache toàn cục
+    //   ttl: 30, // Thời gian sống của cache (tính bằng giây)
+    //   max: 100, // Số lượng mục tối đa trong cache
+    // }),
+
+    AppCacheModule
   ],
 })
 export class AppModule implements NestModule {
