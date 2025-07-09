@@ -58,7 +58,7 @@ async findBysystemDefined(@Query('systemDefined') systemDefined?: boolean) {
 
   // Không cho phép xóa nếu tag có systemDefined = true
   @Delete(':id')
-  @ApiOperation({ summary: 'Xoá tag theo id' })
+  @ApiOperation({ summary: 'Xoá tag theo id [!!Không xóa tag do Hệ thống tạo]]'  })
   @ApiParam({ name: 'id', description: 'Xóa theo ID' })
   remove(@Param('id') id: string) {
     return this.tagService.delete(id);

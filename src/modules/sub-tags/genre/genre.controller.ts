@@ -12,7 +12,7 @@ export class GenreController {
     constructor(private readonly genreService: GenreService) {}
       
     @Post()
-    @ApiOperation({ summary: 'Thêm thể loại Film mới' })
+    @ApiOperation({ summary: 'Thêm thể loại Film mới [!! Không tạo tên trùng nhau]]' })
     create(@Body() createGenreDto: CreateGenreDto) {
       return this.genreService.create(createGenreDto);
     }

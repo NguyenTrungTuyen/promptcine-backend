@@ -8,11 +8,11 @@ export class UpdateTagDto  {
         // @IsNotEmpty({message: "Id must not be empty! "})
         // _id : string;
         
-        @ApiProperty({ example: 'Tên tag mới... ' })
+        @ApiProperty({ example: 'Tên tag mới 1 ' })
         @IsOptional()
         name?:string;
     
-        @ApiProperty({ example: 'Mô tả tag mới... ' })
+        @ApiProperty({ example: 'Mô tả tag mới 1' })
         @MaxLength(300, { message: 'Mô tả quá dài, chỉ tối đa 299 kí tự' })
         @IsOptional()
         description?: string;

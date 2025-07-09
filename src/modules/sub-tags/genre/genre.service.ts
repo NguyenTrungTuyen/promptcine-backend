@@ -27,7 +27,7 @@ export class GenreService {
     // check name
     const isExit = await this.isNameExit(name);
     if (isExit === true) {
-      throw new Error(`Genre name exit: ${name}.Hãy sử dụng tên khác!`);
+      throw new BadRequestException(`Genre name exit: ${name}.Hãy sử dụng tên khác!`);
     }
     const genre = await this.genreModel.create({
       name,

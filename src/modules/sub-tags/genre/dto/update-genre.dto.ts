@@ -8,11 +8,11 @@ export class UpdateGenreDto {
     // @IsNotEmpty({message: "Id must not be empty! "})
     // _id : string;
 
-    @ApiProperty({ example: 'Tên mới... ' })
+    @ApiProperty({ example: 'Tên mới 1 ' })
     @IsOptional()
     name?:string;
 
-    @ApiProperty({ example: 'Mô tả mới... ' })
+    @ApiProperty({ example: 'Mô tả mới 1 ' })
     @MaxLength(200, { message: 'Mô tả quá dài, chỉ tối đa 200 kí tự' })
     @IsOptional()
     description?: string;
