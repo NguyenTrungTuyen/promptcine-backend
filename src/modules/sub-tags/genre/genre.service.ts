@@ -86,12 +86,12 @@ export class GenreService {
     return genre;
   }
 
-  update(updateGenreDto: UpdateGenreDto) {
-    const { _id, name, description } = updateGenreDto;
-    return this.genreModel.findByIdAndUpdate(_id, { name, description }, { new: true })
+  update(id,updateGenreDto: UpdateGenreDto) {
+    const {  name, description } = updateGenreDto;
+    return this.genreModel.findByIdAndUpdate(id, { name, description }, { new: true })
       .then(updatedGenre => { 
         if (!updatedGenre) {
-          throw new Error(`Thể loại với ID ${_id} không tồn tại.`);
+          throw new Error(`Thể loại với ID ${id }không tồn tại.`);
         }
         console.log(`Cập nhật thành công: ${updatedGenre.name}`);
         return updatedGenre;

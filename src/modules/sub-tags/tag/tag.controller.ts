@@ -53,7 +53,7 @@ async findBysystemDefined(@Query('systemDefined') systemDefined?: boolean) {
  @ApiResponse({ status: 400, description: 'Câp nhật thất bại' })
  update(@Param('id') id : string, @Body() updateTagDto: UpdateTagDto) {
    console.log('information input:',updateTagDto );
-   return this.tagService.update(updateTagDto);
+   return this.tagService.update(id, updateTagDto);
  }
 
   // Không cho phép xóa nếu tag có systemDefined = true

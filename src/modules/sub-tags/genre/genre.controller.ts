@@ -47,7 +47,7 @@ export class GenreController {
     @ApiResponse({ status: 400, description: 'Câp nhật thất bại' })
     update(@Param('id') id : string, @Body() updateGenreDto: UpdateGenreDto) {
       console.log('information input:',updateGenreDto );
-      return this.genreService.update(updateGenreDto);
+      return this.genreService.update(id,updateGenreDto);
     }
 
 

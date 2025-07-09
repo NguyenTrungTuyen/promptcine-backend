@@ -76,12 +76,12 @@ async findById(id: string) {
     return tag;
   }
 
-  update(updateTagDto: UpdateTagDto) {
-     const { _id, name, description, systemDefined } = updateTagDto;
-    return this.TagModel.findByIdAndUpdate(_id, { name, description,systemDefined }, { new: true })
+  update(id: string, updateTagDto: UpdateTagDto) {
+     const { name, description, systemDefined } = updateTagDto;
+    return this.TagModel.findByIdAndUpdate(id,{ name, description,systemDefined }, { new: true })
       .then(updatedTag => { 
         if (!updatedTag) {
-          throw new Error(`Tag với ID ${_id} không tồn tại.`);
+          throw new Error(`Tag với ID ${id} không tồn tại.`);
         }
         console.log(`Cập nhật thành công: ${updatedTag.name}`);
         return updatedTag;
